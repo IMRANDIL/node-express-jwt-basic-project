@@ -9,9 +9,9 @@ const authMiddleware = require('../middleware/auth')
 
 
 
-router.route('/api/v1/dashboard').get(authMiddleware, dashboard);
+router.route('/dashboard').get(authMiddleware, dashboard);
 
-router.route('/api/v1/login').post(login)
+router.route('/login').post(login)
 
 
 

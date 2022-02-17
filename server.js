@@ -13,10 +13,10 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 // middleware
 app.use(cors())
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 
-app.use('/', router)
+app.use('/api/v1', router)
 
 
 
