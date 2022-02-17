@@ -7,15 +7,16 @@ const btnDOM = document.querySelector('#data')
 const tokenDOM = document.querySelector('.token')
 
 formDOM.addEventListener('submit', async (e) => {
+
   formAlertDOM.classList.remove('text-success')
   tokenDOM.classList.remove('text-success')
-
   e.preventDefault()
+
   const username = usernameInputDOM.value
   const password = passwordInputDOM.value
 
   try {
-    const { data } = await axios.post('/api/v1/login', { username, password })
+    const { data } = await axios.post('https://node-express-jwt-basic.vercel.app/api/v1/login', { username, password })
 
     formAlertDOM.style.display = 'block'
     formAlertDOM.textContent = data.msg
@@ -44,7 +45,7 @@ formDOM.addEventListener('submit', async (e) => {
 btnDOM.addEventListener('click', async () => {
   const token = localStorage.getItem('token')
   try {
-    const { data } = await axios.get('/api/v1/dashboard', {
+    const { data } = await axios.get('https://node-express-jwt-basic.vercel.app/api/v1/dashboard', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
